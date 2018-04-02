@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Navbar</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">	
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2.0,user-scalable=no">
+
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"> -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+		<style type="text/css">
+			body{
+				padding:0;
+				margin:0;
+				box-sizing: border-box;
+				overflow-x: hidden;
+				font-size: 16px;
+				font-family: 'Nunito', sans-serif;
+				color: #1c1b1b;
+			}
+			.main-content{
+				background:linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/backgrdimg.jpg') no-repeat center center;
+				background-size: cover;
+				color: rgba(255,255,255, 0.7);
+				width: 100%;
+				min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+  				min-height: 80vh; /* These two lines are counted as one :-)       */
+			}
+			.navbar{
+				padding:20px 0px;
+				transition: all 0.5s;
+			}
+			a {
+    			color: rgba(255,255,255, 0.7);
+			}
+			.navbar-toggle{
+				/*border-color:rgba(0,0,0,0.37);*/
+				border:none;
+			}
+			.navbar-toggle .icon-bar{
+				background-color:rgba(255,255,255,1.0);
+				width:27px;
+				height:4px;
+			}
+			a.navbar-brand{
+				font-size: 2.0em;
+				font-weight: 600;
+				color:rgba(255,255,255,0.8);
+			}
+			a.navbar-brand:hover{
+				color: rgba(255,255,255,1.0);
+			}
+			.nav{
+				font-size: 1.2em;
+				font-weight: 400;
+			}
+			section{
+				padding:10%;
+				min-height: 50%;  /* Fallback for browsers do NOT support vh unit */
+  				min-height: 50vh; /* These two lines are counted as one :-)       */
+				display: flex;
+  				align-items: center;
+  				justify-content: center;
+				color:rgba(248,248,242,0.92);
+				letter-spacing:2px;
+			}
+			section span{
+				color:#63d488;
+				font-weight:600;
+			}
+			section h5{
+				margin: 40px 0px;
+				line-height: 40px;
+			}
+			.aboutme{
+				background-color: #f0f0f0;
+			}
+			.aboutme-header{
+				padding-top:90px;
+			}
+			.aboutme-header h2{
+				margin:0px 0px 5px 0px;
+				font-weight: 900;
+			}
+			.aboutme-header span{
+				border-radius: 0;
+    			height: 3px;
+    			width: 75px;
+    			display: inline-block;
+    			background-color:#339999; 
+			}
+			.aboutme-content{
+				margin:20px 0px 20px 0px;
+			}
+			.progress{
+				background-color: #cccccc;
+			}
+			.aboutme-skills .progress{
+				height: 30px !important;
+			}
+			
+			.aboutme-skills .progress-bar{
+				font-size: 14px;
+				line-height: 30px;
+				background-color: #339999 !important;
+			}
+			.aboutme-skills>h3{
+				font-size: 30px;
+				font-weight: 700;
+			}
+			.aboutme-skills>span {
+			    display: block;
+			    margin-bottom: 5px;
+			    font-size: 15px;
+			    font-weight: 600;
+			    color: #444;
+			}
+			.aboutme-details h2{
+				font-weight: 700;
+			}
+			.aboutme-sortdesc h3{
+				line-height:30px;
+				letter-spacing: 1px;
+			}
+			.aboutme-sortdesc span{
+				font-weight:500;
+				color:#339999;
+			}
+			/* The actual timeline (the vertical ruler) */
+			.timeline {
+			position: relative;
+			width:100%;
+			margin: 0 auto;
+			}
+
+			/* The actual timeline (the vertical ruler) */
+			.timeline::after {
+			content: '';
+			position: absolute;
+			width: 6px;
+			background-color: white;
+			top: 0;
+			bottom: 0;
+			left: 30%;
+			margin-left: -3px;
+			}
+
+			/* Container around content */
+			.timeline .container {
+			padding: 10px 40px;
+			position: relative;
+			background-color: inherit;
+			width: 50%;
+			}
+
+			/* The circles on the timeline */
+			.timeline .container::after {
+			content: '';
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			right: -17px;
+			background-color: white;
+			border: 4px solid #FF9F55;
+			top: 15px;
+			border-radius: 50%;
+			z-index: 1;
+			}
+			/* Place the container to the right */
+			.timeline .right {
+			left: 5.5%;
+			}
+
+			/* Add arrows to the right container (pointing left) */
+			.timeline .right::before {
+			content: " ";
+			height: 0;
+			position: absolute;
+			top: 22px;
+			width: 0;
+			z-index: 1;
+			left: 30px;
+			border: medium solid white;
+			border-width: 10px 10px 10px 0;
+			border-color: transparent white transparent transparent;
+			}
+
+			/* Fix the circle for containers on the right side */
+			.timeline .right::after {
+			left: -16px;
+			}
+
+			/* The actual content */
+			.timeline .content {
+			padding: 10px 0px 10px 15px;
+			background-color: white;
+			position: relative;
+			border-radius: 6px;
+			}
+			.timeline .content p{
+				white-space: pre-wrap;
+				word-wrap: break-word;
+			}
+			@media only screen and (min-width: 768px){
+				.nav > li > a:focus,.nav > li > a:hover{
+					border-bottom: 4px solid #ff3333;
+					background-color: rgba(255,255,255,0.0);
+					color:rgba(255,255,255,1.0);
+					font-weight: 500;	
+				}
+				.nav
+				{
+				    position: absolute;
+				    width: 100%;
+				    left: 50%;
+				    text-align: center;
+				}
+				.navbar-brand{
+					position: absolute;
+				    width: 100%;
+				    left: 15%;
+				}
+				.nav li{
+					margin-right: 3%;
+				}
+				section h3{
+					font-size: 2.5em;
+				}
+				section h5{
+					font-size: 1.8em;
+				}
+				#hireme{
+					margin-top: 3.0em;
+				}
+				#hireme button{
+					padding: 20px 35px;
+					font-size: 1.3em;
+				}.aboutme-header h2{
+					font-size: 2.0em;
+				}.timeline .container {
+					width: 100%;
+				}.timeline::after{
+					left:5%;
+				}
+			}
+
+
+			@media only screen and (max-width: 767px) {
+				.navbar-collapse{
+					text-align: center;
+					background: #404343;
+					border-top: 1px solid rgba(153,153,153,0.32);
+				}
+				.nav>li{
+    				padding: 3px 0px;
+				}
+				.nav>li>a{
+					font-size: 0.9em;
+					color:rgba(255,255,255,0.8);
+					font-weight: 400;
+				}
+			   .nav>li:last-of-type{
+					border-bottom:none;
+				}
+				.nav > li > a:focus,.nav > li > a:hover{
+					border-bottom: none;
+					background-color:transparent;
+					color:rgba(0,0,0,1.0);
+					font-weight: 500;
+				}
+				#menu-navbar-collapse{
+				position: fixed;
+				top:0;
+				right:0;
+				z-index: 2;
+				width:300px;
+				height:100%;
+				}
+				section{
+					padding:7%;
+				}
+				section h3{
+					font-size: 2.0em;
+					line-height:1.2em;
+				}
+				section h5{
+					font-size: 1.5em;
+					line-height: 2em;
+				}
+				#hireme{
+					margin-top: 2.0em;
+				}
+				#hireme button{
+					padding: 15px 25px;
+					font-size: 1.3em;
+
+				}
+				.aboutme-header h2{
+					font-size: 1.7em;
+				}
+				.aboutme-sortdesc h3{
+					font-size: 1.3em;
+				}
+				.timeline::after {
+					left: 31px;
+				}
+				/* Full-width containers */
+				.timeline .container {
+					width: 100%;
+					padding-left: 70px;
+					padding-right: 25px;
+				}
+				/* Make sure that all arrows are pointing leftwards */
+				.timeline .container::before {
+				left: 60px;
+				border: medium solid white;
+				border-width: 10px 10px 10px 0;
+				border-color: transparent white transparent transparent;
+				}
+				/* Make sure all circles are at the same spot */
+				.timeline .right::after {
+					left: 15px;
+				}
+
+				/* Make all right containers behave like the left ones */
+				.timeline .right {
+					left: 0%;
+				}
+				.aboutme-skills{
+					margin-top:30px;
+				}
+			}
+
+			@media only screen and (max-width : 480px) {
+				section{
+					padding:5%;
+				}
+				section h3{
+					font-size: 1.7em;
+					line-height: 1.2em;
+				}
+				section h5{
+					font-size: 1.1em;
+					line-height: 2em;
+				}
+				#hireme-top{
+					margin-top: 1.5em;
+				}
+			}
+
+			@media only screen and (max-width : 320px) {
+				section{
+					padding:3%;
+				}
+				section h3{
+					font-size: 1.5em;
+				}
+				section h5{
+					font-size: 1.0em;
+				}
+				#hireme{
+					margin-top: 1.0em;
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="main-content">
+			<nav class="navbar navbar-static-top navbar-light">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type = "button" class = "navbar-toggle" data-toggle = "slide-collapse" data-target = "#menu-navbar-collapse">
+			         		<span class = "sr-only">Toggle navigation</span>
+			         		<span class = "icon-bar"></span>
+			         		<span class = "icon-bar"></span>
+			         		<span class = "icon-bar"></span>
+		      			</button>
+						<span class = "navbar-brand">Tej narayan</span>			
+					</div>
+
+					<div class = "collapse navbar-collapse" id = "menu-navbar-collapse">
+			
+						<ul class = "nav navbar-nav">
+						 <li class="active"><a href = "#">First</a></li>
+						 <li><a href = "#">Second</a></li>
+						 <li><a href = "#">Third</a></li>
+						 <li><a href = "#">Fourth</a></li>
+						</ul>
+		   			</div>
+		   		</div>
+			</nav>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 text-center" id="home">
+							<h3>LOOKING FOR A <span>WEB DEVELOPER?</span></h3>
+							<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 text-center">
+								<h5>I'M A WEB DEVELOPER &amp; PROGRAMMER,LOVE TO MAKE WEB APPLICATIONS USUALLY 	WITH 
+								<span>RUBY ON RAILS</span> &amp; <span>NODEJS.</span>
+								</h5>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="hireme">
+						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
+							<button type="button" class="btn btn-success btn-outline-info center-block">HIRE ME!</button>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<main class="aboutme">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-sm-12 aboutme-header text-center">
+						<h2>ABOUT ME</h2>
+						<span></span>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-sm-12 aboutme-sortdesc text-center">
+						<h3>
+							I'm <span>Tej Narayan</span>,a web developer <span>(Full Stack Developer)</span>.
+						</h3> 
+					</div>
+				</div>
+				<div class="row aboutme-content">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 aboutme-details">
+						<h2 class="text-center">Experience</h2>
+						<div class="timeline">
+						  <div class="container right">
+						    <div class="content">
+						      <h3>Jan,2017</h3>
+						      <p>Started my journey of web development in ObjectOrb technologies with backend technologies , ruby on rails &amp; Mongodb.</p>
+						    </div>
+						  </div>
+						  <div class="container right">
+						    <div class="content">
+						      <h3>April,2017</h3>
+						      <p>Exploring the beauty of MVC and document-oriented database.</p>
+						    </div>
+						  </div>
+						  <div class="container right">
+						    <div class="content">
+						      <h3>July,2017</h3>
+						      <p>Started learning front-end with HTML , CSS , javascript.</p>
+						    </div>
+						  </div>
+						  <div class="container right">
+						    <div class="content">
+						      <h3>October,2017</h3>
+						      <p>Dived into the libraries of javascript and started working on ajax and jquery.</p>
+						    </div>
+						  </div>
+						  <div class="container right">
+						    <div class="content">
+						      <h3>Jan,2018</h3>
+						      <p>Started working on the js framework's (Angularjs , Nodejs , Expressjs). Currently working on these technologies.</p>
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 aboutme-skills">
+						<h3 class="text-center">Skills</h3>
+						<span>Ruby On Rails</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>MongoDB</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>HTML</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>CSS</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>Javascript</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>Jquery</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>Angular Js</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>Express Js</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+						<span>Node Js</span>
+						<div class="progress">
+						    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+						      70%
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<div style="margin-top:2000px">
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(window).scroll(function(){
+			if($(document).scrollTop() > 300){
+				$(".navbar").removeClass("navbar-static-top").addClass("navbar-fixed-top").css({"padding":"0px","background-color":"rgba(255,255,255,1.0)","top":"0px"});
+				$(".navbar-brand").css({"font-size":"1.5em","color":"rgba(0,0,0,0.7)"});
+				if(window.screen.width >768){
+					$(".nav").css({"font-size":"1.04em"});
+					$(".nav>li>a").css({"color":"rgba(0,0,0,0.7)"})
+				}
+				$(".nav>li>a").hover(function() {
+  					$(this).css("color","rgba(0,0,0,1.0)")
+				});
+				$(".navbar-toggle .icon-bar").css("background-color","rgba(0,0,0,1.0)");
+				$(".navbar-fixed-top .navbar-collapse").css("max-height","100%");
+				$('.navbar').fadeIn();
+
+			}else{
+				$(".navbar").removeClass("navbar-fixed-top").addClass("navbar-static-top").css({"padding":"20px 0px","background-color":"rgba(255,255,255,0)"});
+				$(".navbar-brand").css({"font-size":"2.0em","color":"rgba(255,255,255,0.8)"});
+				$(".nav").css({"font-size":"1.2em"});
+				$(".nav>li>a").hover(function() {
+  					$(this).css("color","rgba(255,255,255,1.0)")
+				});
+				if(window.screen.width >768){
+					$(".nav>li>a").css({"color":"rgba(255,255,255,0.7)"})
+				}else{
+					$(".nav>li>a").css({"color":"color:rgba(255,255,255,0.8)"})
+				}
+				$(".navbar-toggle .icon-bar").css("background-color","rgba(255,255,255,1.0)");
+				$(".navbar").css({"box-shadow":"none"});
+			}
+		});
+		$('[data-toggle="slide-collapse"]').on('click',function(){
+			var navMenuLeft = $($(this).data('target'));
+			navMenuLeft.animate({'width':'toggle'},350,'linear');
+			event.stopPropagation();
+		});
+		$(document).click(function(e) {
+			if (!$(e.target).is('#menu-navbar-collapse')) {
+				$('#menu-navbar-collapse').animate({'width':'toggle'},350,'linear');
+
+			}
+
+		});
+	</script>
+</html>
