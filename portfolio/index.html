@@ -571,6 +571,7 @@
 		$(document).click(function(e) {
 			if (!$(e.target).is('#menu-navbar-collapse')) {
 				$('#menu-navbar-collapse').animate({'width':'toggle'},350,'linear');
+				$('#menu-navbar-collapse').collapse('hide');
 
 			}
 
