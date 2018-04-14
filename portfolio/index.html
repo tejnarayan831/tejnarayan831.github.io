@@ -239,15 +239,16 @@
 			if (!$(e.target).is('#menu-navbar-collapse') && $("#menu-navbar-collapse").css("display") == "block") {
 				$('#menu-navbar-collapse').animate({'width':'toggle'},350,'linear');
 			}
-		$('a').on("click",function(e){
-			if(window.screen.width < 768 && $(this).parent().parent().attr("id") != "hireme"){
-				$("#menu-navbar-collapse").animate({'width':'toggle'},150,'linear');
-				$(".nav>li>a").css({"color":"rgba(255,255,255,0.8)","font-weight":400})
-				$(this).css({"color":"#fff","font-weight":500})
-			}
-			$('html, body').animate({
-				scrollTop: $($(this).attr('href')).offset().top-50}, 500);
-				return false;
+			$('a').on("click",function(e){
+				if(window.screen.width < 768 && $(this).parent().parent().attr("id") != "hireme"){
+					$("#menu-navbar-collapse").animate({'width':'toggle'},150,'linear');
+					$(".nav>li>a").css({"color":"rgba(255,255,255,0.8)","font-weight":400})
+					$(this).css({"color":"#fff","font-weight":500})
+				}
+				$('html, body').animate({
+					scrollTop: $($(this).attr('href')).offset().top-50}, 500);
+					return false;
+			});
 		});
 		
 	</script>
