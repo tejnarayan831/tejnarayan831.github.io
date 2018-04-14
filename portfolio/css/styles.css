@@ -1,0 +1,502 @@
+*{
+				padding:0;
+				margin:0;
+				box-sizing: border-box;
+			}
+			body{
+				overflow-x: hidden;
+				font-size: 16px;
+				font-family: 'Nunito', sans-serif;
+				color: #1c1b1b;
+			}
+			.no_pad{
+				padding:0 !important;
+			}
+			.main-content{
+				background:linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../images/backgrdimg.jpg') no-repeat center center;
+				background-size: cover;
+				color: rgba(255,255,255, 0.7);
+				width: 100%;
+				min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+  				min-height: 80vh; /* These two lines are counted as one :-)       */
+			}
+			.navbar{
+				padding:20px 0px;
+				transition: all 0.5s;
+			}
+			a {
+    			color: rgba(255,255,255, 0.7);
+			}
+			.navbar-toggle{
+				/*border-color:rgba(0,0,0,0.37);*/
+				border:none;
+			}
+			.navbar-toggle .icon-bar{
+				background-color:rgba(255,255,255,1.0);
+				width:27px;
+				height:4px;
+			}
+			.navbar-brand{
+				font-size: 2.0em;
+				font-weight: 600;
+				color:rgba(255,255,255,0.8);
+			}
+			.navbar-brand:hover{
+				color: rgba(255,255,255,1.0);
+			}
+			.nav{
+				font-size: 1.4em;
+				font-weight: 400;
+			}
+			@keyframes topToMiddle {
+			   	0%{top: -40px;opacity: 0; visibility: hidden}
+			    75% {top: 20px;opacity: 1.0; visibility: visible}
+				100% {top: 0px;opacity: 1.0; visibility: visible}
+			}
+			@-webkit-keyframes topToMiddle{
+			    0%{top: -40px;opacity: 0; visibility: hidden}
+			    50% {top: 20px;opacity: 1.0; visibility: visible}
+				100% {top: 0px;opacity: 1.0; visibility: visible}
+			}
+			.top_to_middle{
+
+				animation: topToMiddle 1.5s ease-out;
+		        -moz-animation: topToMiddle 1.5s ease-out;
+		        -webkit-animation: topToMiddle 1.5s ease-out;
+			}
+
+			@keyframes opacity{
+			   	from   {opacity: 0; visibility: hidden}
+			    to {opacity: 1.0; visibility: visible}
+			}
+			@-webkit-keyframes opacity{
+			    from  {opacity: 0; visibility: hidden}
+			    to {opacity: 1.0; visibility: visible}
+			}
+			.opacityAnim{
+				animation: opacity 1.5s ease-out;
+		        -moz-animation: opacity 1.5s ease-out;
+		        -webkit-animation: opacity 1.5s ease-out;
+			}
+			@keyframes leftToRight {
+			   	from  {left:-400px;opacity: 0; visibility: hidden}
+			    to {left:0px;opacity: 1.0; visibility: visible}
+			}
+			@-webkit-keyframes leftToRight{
+			    from  {left:-400px;opacity: 0; visibility: hidden}
+			    to {left:0px;opacity: 1.0; visibility: visible}
+			}
+			.left_to_right{
+				animation: leftToRight 1.5s ease-out;
+		        -moz-animation: leftToRight 1.5s ease-out;
+		        -webkit-animation: leftToRight 1.5s ease-out;
+			}
+			@keyframes rightToleft{
+			   	from  {right:-400px;opacity: 0; visibility: hidden}
+			    to {right:0px;opacity: 1.0; visibility: visible}
+			}
+			@-webkit-keyframes rightToleft{
+			    from  {right:-400px;opacity: 0; visibility: hidden}
+			    to {right:0px;opacity: 1.0; visibility: visible}
+			}
+			.right_to_left{
+				animation: rightToleft 1.5s ease-out;
+		        -moz-animation: rightToleft 1.5s ease-out;
+		        -webkit-animation: rightToleft 1.5s ease-out;
+			}
+			@keyframes bottomToTop{
+			   	0%{bottom: -40px;opacity: 0; visibility: hidden}
+			    50% {bottom: 20px;opacity: 1.0; visibility: visible}
+				100% {bottom: 0px;opacity: 1.0; visibility: visible}
+			}
+			@-webkit-keyframes bottomToTop{
+			   	0%{bottom: -40px;opacity: 0; visibility: hidden}
+			    50% {bottom: 20px;opacity: 1.0; visibility: visible}
+				100% {bottom: 0px;opacity: 1.0; visibility: visible}
+			}
+			.bottom_to_top{
+				animation: bottomToTop 1.5s ease-out;
+		        -moz-animation: bottomToTop 1.5s ease-out;
+		        -webkit-animation: bottomToTop 1.5s ease-out;
+			}
+			section{
+				padding:10%;
+				min-height: 50%;  /* Fallback for browsers do NOT support vh unit */
+  				min-height: 50vh; /* These two lines are counted as one :-)       */
+				display: flex;
+  				align-items: center;
+  				justify-content: center;
+				color:rgba(248,248,242,0.92);
+				letter-spacing:2px;
+			}
+			section span{
+				color:#63d488;
+				font-weight:600;
+			}
+			section h5{
+				margin: 40px 0px;
+				line-height: 40px;
+			}
+			#hireme a{
+				display: block;
+				margin:0 auto;
+				color: #fff;
+			    font-weight: 500;
+			    letter-spacing: 3px;
+			    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+			    padding: 15px 35px 15px 35px;
+			    border: 2px solid #fff;
+			    transition: background 0.5s;
+			    text-decoration: none;
+			}
+			#hireme a:hover{
+				color: #000;
+				background:#fff;
+			}
+			.aboutme{
+				background-color: #f0f0f0;
+			}
+			.aboutme-header,.portfolio-header,.contactme-header{
+				padding-top:90px;
+				opacity: 0;
+			}
+			.aboutme-header h2 , .portfolio-header h2 ,.contactme-header h2{
+				margin:0px 0px 5px 0px;
+				font-weight: 900;
+			}
+			.aboutme-header span, .portfolio-header span , .contactme-header span{
+				border-radius: 0;
+    			height: 3px;
+    			width: 75px;
+    			display: inline-block;
+    			background-color:#339999; 
+			}
+			.aboutme-content{
+				margin:20px 0px 20px 0px;
+			}
+			.progress{
+				background-color: #cccccc;
+			}
+			.aboutme-skills .progress{
+				height: 30px !important;
+			}
+			
+			.aboutme-skills .progress-bar{
+				font-size: 14px;
+				line-height: 30px;
+				background-color: #339999 !important;
+			}
+			.aboutme-skills>h3{
+				font-size: 30px;
+				font-weight: 700;
+			}
+			.aboutme-skills>span {
+			    display: block;
+			    margin-bottom: 5px;
+			    font-size: 15px;
+			    font-weight: 600;
+			    color: #444;
+			}
+			.aboutme-details h2{
+				font-weight: 700;
+			}
+			.aboutme-sortdesc{
+				opacity: 0;	
+			}
+			.aboutme-sortdesc h3,#getintouch_header_scrollspy h3{
+				line-height:30px;
+				letter-spacing: 1px;
+			}
+			.aboutme-sortdesc span{
+				font-weight:500;
+				color:#339999;
+			}
+			/* The actual timeline (the vertical ruler) */
+			.timeline {
+			position: relative;
+			width:100%;
+			margin: 0 auto;
+			}
+
+			/* The actual timeline (the vertical ruler) */
+			.timeline::after {
+			content: '';
+			position: absolute;
+			width: 6px;
+			background-color: white;
+			top: 0;
+			bottom: 0;
+			left: 30%;
+			margin-left: -3px;
+			}
+
+			/* Container around content */
+			.timeline .container {
+			padding: 10px 40px;
+			position: relative;
+			background-color: inherit;
+			width: 50%;
+			}
+
+			/* The circles on the timeline */
+			.timeline .container::after {
+			content: '';
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			right: -17px;
+			background-color: white;
+			border: 4px solid #FF9F55;
+			top: 15px;
+			border-radius: 50%;
+			z-index: 1;
+			}
+			/* Place the container to the right */
+			.timeline .right {
+			left: 5.5%;
+			}
+
+			/* Add arrows to the right container (pointing left) */
+			.timeline .right::before {
+			content: " ";
+			height: 0;
+			position: absolute;
+			top: 22px;
+			width: 0;
+			z-index: 1;
+			left: 30px;
+			border: medium solid white;
+			border-width: 10px 10px 10px 0;
+			border-color: transparent white transparent transparent;
+			}
+
+			/* Fix the circle for containers on the right side */
+			.timeline .right::after {
+			left: -16px;
+			}
+
+			/* The actual content */
+			.timeline .content {
+			padding: 10px 0px 10px 15px;
+			background-color: white;
+			position: relative;
+			border-radius: 6px;
+			}
+			.timeline .content p{
+				white-space: pre-wrap;
+				word-wrap: break-word;
+			}
+			.portfolio{
+				/*background: rgba(158,158,158,0.44);*/
+				background: #fff;
+				height:400px;
+			}
+			.contact-me{
+				background-color: #f7f7f7;
+				padding-bottom:100px;
+			}
+			.submit-btn {
+				font-size: 16px;
+				padding: 15px 50px;
+			}
+			.v-pixpa-blue {
+				background: rgba(0, 197, 190,0.5);
+				color: #fff;
+				font-weight: 600;
+			}
+			.margin_t30 {
+				margin-top: 30px;
+			}
+			.button {
+			display: block;
+			border-radius: 3px;
+			border: 0;
+			outline: 0;
+			letter-spacing: 1px;
+			margin: auto;
+			cursor: pointer;
+			transition: background .25s ease-in-out;
+			}
+			.contact-form-field{
+			    border: 1px solid #e5e5e5;
+			    border-radius: 5px;
+			    width:80%;
+			    outline: 0;
+			    padding: 15px 20px;
+			    margin-bottom: 20px;
+			    font-size: 16px;
+			}
+			@media only screen and (min-width: 768px){
+				.nav > li > a:focus,.nav > li > a:hover{
+					border-bottom: 4px solid #ff3333;
+					background-color: rgba(255,255,255,0.0);
+					color:rgba(255,255,255,1.0);
+					font-weight: 500;	
+				}
+				.nav
+				{
+				    position: absolute;
+				    width: 100%;
+				    left: 50%;
+				    text-align: center;
+				}
+				.navbar-brand{
+					position: absolute;
+				    width: 100%;
+				    left: 15%;
+				}
+				.nav li{
+					margin-right: 3%;
+				}
+				section h3{
+					font-size: 2.5em;
+				}
+				section h5{
+					font-size: 1.8em;
+				}
+				#hireme{
+					margin-top: 3.0em;
+				}
+				#hireme a{
+					font-size: 1.3em;
+				}
+				.aboutme-header h2 , .portfolio-header h2 , .contactme-header h2{
+					font-size: 2.0em;
+				}
+				.timeline .container {
+					width: 100%;
+				}
+				.timeline::after{
+					left:5%;
+				}
+			}
+
+
+			@media only screen and (max-width: 767px) {
+				.navbar-collapse{
+					text-align: center;
+					background: #404343;
+					border-top: 1px solid rgba(153,153,153,0.32);
+				}
+				.nav>li{
+    				padding: 3px 0px;
+				}
+				.nav>li>a{
+					font-size: 0.9em;
+					color:rgba(255,255,255,0.8);
+					font-weight: 400;
+				}
+			   .nav>li:last-of-type{
+					border-bottom:none;
+				}
+				.nav > li > a:focus,.nav > li > a:hover{
+					border-bottom: none;
+					background-color:transparent;
+					color:rgba(0,0,0,1.0);
+					font-weight: 500;
+				}
+				#menu-navbar-collapse{
+				position: fixed;
+				top:0;
+				left:0;
+				z-index: 2;
+				width: 90%;
+				height:100%;
+				}
+				section{
+					padding:7%;
+				}
+				section h3{
+					font-size: 2.0em;
+					line-height:1.2em;
+				}
+				section h5{
+					font-size: 1.5em;
+					line-height: 2em;
+				}
+				#hireme{
+					margin-top: 2.0em;
+				}
+				#hireme a{
+					padding: 12px 30px;
+					font-size: 1.3em;
+					margin-bottom: 1.0em;
+				}
+				.aboutme >.container-fluid{
+					padding-right:0px !important;
+					padding-left: 0px !important;
+				}
+				.aboutme-header h2 , .portfolio-header h2 , .contactme-header h2{
+					font-size: 1.7em;
+				}
+				.aboutme-sortdesc h3,#getintouch_header_scrollspy h3{
+					font-size: 1.3em;
+				}
+				.timeline::after {
+					left: 31px;
+				}
+				/* Full-width containers */
+				.timeline .container {
+					width: 100%;
+					padding-left: 70px;
+					padding-right: 25px;
+				}
+				/* Make sure that all arrows are pointing leftwards */
+				.timeline .container::before {
+				left: 60px;
+				border: medium solid white;
+				border-width: 10px 10px 10px 0;
+				border-color: transparent white transparent transparent;
+				}
+				/* Make sure all circles are at the same spot */
+				.timeline .right::after {
+					left: 15px;
+				}
+
+				/* Make all right containers behave like the left ones */
+				.timeline .right {
+					left: 0%;
+				}
+				.aboutme-skills{
+					margin-top:30px;
+				}.contact-form-field{
+					width: 95%;
+				} 
+			}
+
+			@media only screen and (max-width : 480px) {
+				section{
+					padding:0px;
+				}
+				section h3{
+					font-size: 1.7em;
+					line-height: 1.2em;
+					margin-bottom: 0px;
+				}
+				section h5{
+					font-size: 1.1em;
+					line-height: 1.7em;
+				}
+				#hireme-top{
+					margin-top: 1.5em;
+				}
+				.aboutme-header , .portfolio-header, .contactme-header{
+					padding-top: 40px;
+				}
+				.button {
+				    padding: 15px 40px;
+				    font-size: 14px;
+				}
+			}
+
+			@media only screen and (max-width : 320px) {
+				section h3{
+					font-size: 1.5em;
+				}
+				section h5{
+					font-size: 1.0em;
+				}
+				#hireme{
+					margin-top: 1.0em;
+				}
+			}
